@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["oauth.go"],
+    importpath = "github.com/riking/homeapi/intra",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@com_github_gorilla_sessions//:go_default_library",
+        "@com_github_pkg_errors//:go_default_library",
+        "@org_golang_x_oauth2//:go_default_library",
+    ],
+)

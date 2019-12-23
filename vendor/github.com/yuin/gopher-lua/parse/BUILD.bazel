@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "lexer.go",
+        "parser.go",
+    ],
+    importmap = "github.com/riking/homeapi/vendor/github.com/yuin/gopher-lua/parse",
+    importpath = "github.com/yuin/gopher-lua/parse",
+    visibility = ["//visibility:public"],
+    deps = ["//vendor/github.com/yuin/gopher-lua/ast:go_default_library"],
+)
