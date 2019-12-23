@@ -1,0 +1,52 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "alloc.go",
+        "auxlib.go",
+        "baselib.go",
+        "channellib.go",
+        "compile.go",
+        "config.go",
+        "coroutinelib.go",
+        "debuglib.go",
+        "function.go",
+        "iolib.go",
+        "linit.go",
+        "loadlib.go",
+        "mathlib.go",
+        "opcode.go",
+        "oslib.go",
+        "package.go",
+        "state.go",
+        "stringlib.go",
+        "table.go",
+        "tablelib.go",
+        "utils.go",
+        "value.go",
+        "vm.go",
+    ],
+    importmap = "github.com/riking/homeapi/vendor/github.com/yuin/gopher-lua",
+    importpath = "github.com/yuin/gopher-lua",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/yuin/gopher-lua/ast:go_default_library",
+        "//vendor/github.com/yuin/gopher-lua/parse:go_default_library",
+        "//vendor/github.com/yuin/gopher-lua/pm:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = [
+        "auxlib_test.go",
+        "channellib_test.go",
+        "script_test.go",
+        "state_test.go",
+        "table_test.go",
+        "testutils_test.go",
+    ],
+    embed = [":go_default_library"],
+    deps = ["//vendor/github.com/yuin/gopher-lua/parse:go_default_library"],
+)

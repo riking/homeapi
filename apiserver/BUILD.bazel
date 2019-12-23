@@ -1,0 +1,30 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "factorio.go",
+        "main.go",
+        "minecraft.go",
+        "rss.go",
+        "serve42.go",
+    ],
+    importpath = "github.com/riking/homeapi/apiserver",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//apiserver/rss-data:go_default_library",
+        "//intra:go_default_library",
+        "//rcon:go_default_library",
+        "//vendor/github.com/ammario/mcping:go_default_library",
+        "@com_github_golang_commonmark_markdown//:go_default_library",
+        "@com_github_pkg_errors//:go_default_library",
+        "@com_github_shirou_gopsutil//process:go_default_library",
+        "@org_golang_x_net//context:go_default_library",
+    ],
+)
+
+go_binary(
+    name = "apiserver",
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
+)

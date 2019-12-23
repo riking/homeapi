@@ -1,3 +1,9 @@
 .idea
 *.iml
 testdata/config.ini
+
+# Bazel symlinks
+bazel-bin
+bazel-homeapi
+bazel-out
+bazel-testlogs

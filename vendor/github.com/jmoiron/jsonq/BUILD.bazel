@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "doc.go",
+        "jsonq.go",
+    ],
+    importmap = "github.com/riking/homeapi/vendor/github.com/jmoiron/jsonq",
+    importpath = "github.com/jmoiron/jsonq",
+    visibility = ["//visibility:public"],
+)

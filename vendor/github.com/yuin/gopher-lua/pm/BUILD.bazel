@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["pm.go"],
+    importmap = "github.com/riking/homeapi/vendor/github.com/yuin/gopher-lua/pm",
+    importpath = "github.com/yuin/gopher-lua/pm",
+    visibility = ["//visibility:public"],
+)

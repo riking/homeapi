@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["glua.go"],
+    importmap = "github.com/riking/homeapi/vendor/github.com/yuin/gopher-lua/cmd/glua",
+    importpath = "github.com/yuin/gopher-lua/cmd/glua",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//vendor/github.com/yuin/gopher-lua:go_default_library",
+        "//vendor/github.com/yuin/gopher-lua/parse:go_default_library",
+    ],
+)
+
+go_binary(
+    name = "glua",
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
+)

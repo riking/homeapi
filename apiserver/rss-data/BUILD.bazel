@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//extras:bindata.bzl", go_bindata = "bindata")
+
+go_bindata(
+    name = "bindata",
+    srcs = [
+        "rss.xml",
+    ],
+    package = "github.com/riking/homeapi/apiserver/rss-data",
+)
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "bindata.go",
+        "generate.go",
+    ],
+    importpath = "github.com/riking/homeapi/apiserver/rss-data",
+    visibility = ["//visibility:public"],
+)
