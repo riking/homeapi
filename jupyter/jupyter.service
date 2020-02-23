@@ -1,0 +1,17 @@
+[Unit]
+Description=Jupyter Notebook
+Requires=nginx.service
+
+[Service]
+User=notebook
+WorkingDirectory=/tank/tljh/tmp
+
+ExecStart=/bin/bash /tank/tljh/start.sh
+Type=simple
+Restart=on-failure
+RestartSec=5s
+
+Environment="HOME=/tank/tljh/home"
+
+[Install]
+WantedBy=multi-user.target
