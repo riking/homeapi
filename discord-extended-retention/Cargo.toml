@@ -1,0 +1,27 @@
+[package]
+name = "discord-extended-retention"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+toml = "0.5.9"
+serde = "1.0.137"
+tokio = "1.0"
+anyhow = "1.0.58"
+
+[dependencies.serenity]
+version = "0.11"
+default-features = false
+features = [
+  "builder",
+  "cache",
+  "chrono",
+  "client",
+  "gateway",
+  "model",
+  "http",
+  "utils",
+  "rustls_backend",
+]
