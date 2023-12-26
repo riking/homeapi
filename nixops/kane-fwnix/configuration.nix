@@ -11,6 +11,10 @@
       ./hardware-configuration.nix
     ];
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "discord-0.0.38"
+  ];
+
   # Suspend/wake workaround
   hardware.framework.amd-7040.preventWakeOnAC = true;
 
@@ -97,10 +101,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    discord
     git
     neovim
-    wget
     rustup
+    wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
