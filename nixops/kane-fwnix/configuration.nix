@@ -6,9 +6,13 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      <nixos-hardware/framework/13-inch/7040-amd>
       ./hardware-configuration.nix
     ];
+
+  # Suspend/wake workaround
+  hardware.framework.amd-7040.preventWakeOnAC = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -19,6 +23,7 @@
       configfile "($ubuntu)/boot/grub/grub.cfg"
     }
   '';
+  boot.kernelPackages = pkgs.linuxPackages_latest; # for WiFi support
 
   networking.hostName = "kane-fwnix"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -43,8 +48,10 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
   services.wayland.enable = true;
-  
+  # Fingerprint
   services.fprintd.enable = true;
+  # Firmware update
+  services.fwupd.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
@@ -54,8 +61,13 @@
   services.printing.enable = true;
 
   # Enable sound.
-  sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  }
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -72,10 +84,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  # ];
+  environment.systemPackages = with pkgs; [
+    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -99,7 +111,7 @@
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
+  system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
