@@ -58,12 +58,9 @@
   services.xserver.desktopManager.plasma5.enable = true;
   programs.dconf.enable = true;
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
-    elisa
     gwenview
-    okular
     oxygen
     khelpcenter
-    konsole
     plasma-browser-integration
     print-manager
   ];
@@ -100,7 +97,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    git
+    neovim
     wget
     rustup
   ];
