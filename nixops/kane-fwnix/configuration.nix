@@ -7,7 +7,7 @@
 {
   imports =
     [
-      <nixos-hardware/framework/13-inch/7040-amd>
+      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; rev = "a15b6e525f5737a47b4ce28445c836996fb2ea8c"; }}/framework/13-inch/7040-amd"
       ./hardware-configuration.nix
     ];
 
@@ -17,12 +17,13 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.extraEntries = ''
-    menuentry "Ubuntu" {
-      search --set=ubuntu --fs-uuid 88171e08-de38-4d46-a390-2c03818f6982
-      configfile "($ubuntu)/boot/grub/grub.cfg"
-    }
-  '';
+  #boot.loader.grub.efiSupport = true;
+  #boot.loader.grub.extraEntries = ''
+  #  menuentry "Ubuntu" {
+  #    search --set=ubuntu --fs-uuid 88171e08-de38-4d46-a390-2c03818f6982
+  #    configfile "($ubuntu)/boot/grub/grub.cfg"
+  #  }
+  #'';
   boot.kernelPackages = pkgs.linuxPackages_latest; # for WiFi support
 
   networking.hostName = "kane-fwnix"; # Define your hostname.
@@ -45,13 +46,27 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  services.wayland.enable = true;
   # Fingerprint
   services.fprintd.enable = true;
   # Firmware update
   services.fwupd.enable = true;
+
+  # KDE
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.defaultSession = "plasmawayland";
+  services.xserver.desktopManager.plasma5.enable = true;
+  programs.dconf.enable = true;
+  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+    elisa
+    gwenview
+    okular
+    oxygen
+    khelpcenter
+    konsole
+    plasma-browser-integration
+    print-manager
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
@@ -67,7 +82,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-  }
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -87,6 +102,7 @@
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    rustup
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
