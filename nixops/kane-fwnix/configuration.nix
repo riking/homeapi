@@ -4,16 +4,23 @@
 
 { config, lib, pkgs, ... }:
 
-{
+let
+  viLink = pkgs.writeShellScriptBin "vi" ''
+    ${pkgs.neovim}/bin/nvim "$@"
+  '';
+in {
   imports =
     [
       "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; rev = "a15b6e525f5737a47b4ce28445c836996fb2ea8c"; }}/framework/13-inch/7040-amd"
       ./hardware-configuration.nix
     ];
 
+  # TODO why is this not functioning?
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "discord-0.0.38"
+    "discord"
+    "steam"
   ];
+  nixpkgs.config.allowUnfree = true;
 
   # Suspend/wake workaround
   hardware.framework.amd-7040.preventWakeOnAC = true;
@@ -84,6 +91,19 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  environment.etc = {
+    "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+      bluez_monitor.properties = {
+        ["bluez5.enable-sbc-xq"] = true,
+        ["bluez5.enable-msbc"] = true,
+        ["bluez5.enable-hw-volume"] = true,
+        ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+      }
+    '';
+  };
+
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -104,8 +124,11 @@
     discord
     git
     neovim
+    steam
     rustup
     wget
+  ] ++ [
+    viLink
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
