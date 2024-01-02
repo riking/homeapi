@@ -5,9 +5,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  viLink = pkgs.writeShellScriptBin "vi" ''
-    ${pkgs.neovim}/bin/nvim "$@"
-  '';
+  dummyLet = 1;
 in {
   imports =
     [
@@ -124,11 +122,12 @@ in {
     discord
     git
     neovim
+    mpv
+    python313
     steam
     rustup
     wget
-  ] ++ [
-    viLink
+    (pkgs.callPackage ./vi.nix {})
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
