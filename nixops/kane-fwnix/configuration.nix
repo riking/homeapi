@@ -120,7 +120,9 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     discord
+    gedit
     git
+    krita
     neovim
     mpv
     python313
