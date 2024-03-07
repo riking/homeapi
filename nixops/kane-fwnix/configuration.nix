@@ -6,6 +6,18 @@
 
 let
   dummyLet = 1;
+  myBluezConfig = pkgs.stdenv.mkDerivation {
+    src = [
+      (builtins.toFile "share/wireplumber/bluetooth.lua.d/51-bluez-config.lua" ''
+	bluez_monitor.properties = {
+	  ["bluez5.enable-sbc-xq"] = true,
+	  ["bluez5.enable-msbc"] = true,
+	  ["bluez5.enable-hw-volume"] = true,
+	  ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+	}
+      '')
+    ];
+  };
 in {
   imports =
     [
@@ -91,17 +103,9 @@ in {
   };
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
-  environment.etc = {
-    "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
-      bluez_monitor.properties = {
-        ["bluez5.enable-sbc-xq"] = true,
-        ["bluez5.enable-msbc"] = true,
-        ["bluez5.enable-hw-volume"] = true,
-        ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
-      }
-    '';
-  };
 
+  # TODO reenable
+  #services.pipewire.wireplumber.configPackages."51-bluez-config.lua" = myBluezConfig;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
