@@ -23,6 +23,14 @@ in {
     [
       "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; rev = "a15b6e525f5737a47b4ce28445c836996fb2ea8c"; }}/framework/13-inch/7040-amd"
       ./hardware-configuration.nix
+      (import
+        (
+          (fetchTarball { url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz"; }) + "/module.nix"
+        )
+        {
+          lix = fetchTarball { url = "https://git.lix.systems/lix-project/lix/archive/2.90-beta.1.tar.gz"; };
+        }
+      )
     ];
 
   # TODO why is this not functioning?
