@@ -37,8 +37,8 @@ in {
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"
     "steam"
+    "steam-original"
   ];
-  nixpkgs.config.allowUnfree = true;
 
   # Suspend/wake workaround
   hardware.framework.amd-7040.preventWakeOnAC = true;
