@@ -21,7 +21,7 @@ let
 in {
   imports =
     [
-      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; rev = "a15b6e525f5737a47b4ce28445c836996fb2ea8c"; }}/framework/13-inch/7040-amd"
+      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; rev = "b55712de78725c8fcde422ee0a0fe682046e73c3"; }}/framework/13-inch/7040-amd"
       ./hardware-configuration.nix
       (import
         (
@@ -82,8 +82,8 @@ in {
 
   # KDE
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.defaultSession = "plasmawayland";
+  services.displayManager.sddm.enable = true;
+  services.displayManager.defaultSession = "plasmawayland";
   services.xserver.desktopManager.plasma5.enable = true;
   programs.dconf.enable = true;
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
