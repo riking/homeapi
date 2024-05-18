@@ -6,6 +6,7 @@
 
 let
   dummyLet = 1;
+  srcs = import ./npins;
   myBluezConfig = pkgs.stdenv.mkDerivation {
     src = [
       (builtins.toFile "share/wireplumber/bluetooth.lua.d/51-bluez-config.lua" ''
@@ -21,19 +22,20 @@ let
 in {
   imports =
     [
-      "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; rev = "b55712de78725c8fcde422ee0a0fe682046e73c3"; }}/framework/13-inch/7040-amd"
+      "${srcs.nixos-hardware}/framework/13-inch/7040-amd"
       ./hardware-configuration.nix
-      (import
-        (
-          (fetchTarball { url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz"; }) + "/module.nix"
-        )
-        {
-          lix = fetchTarball { url = "https://git.lix.systems/lix-project/lix/archive/2.90-beta.1.tar.gz"; };
-        }
-      )
+      (import ("${srcs.lix-nixos-module}/module.nix") (
+        let lix = srcs.lix.outPath;
+	in {
+	  inherit lix;
+	  versionSuffix = "pre${builtins.substring 0 8 lix.lastModifiedDate}-${lix.shortRev}";
+	}
+      ))
     ];
 
-  # TODO why is this not functioning?
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+  };
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"
     "steam"
@@ -132,10 +134,12 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     discord
+    fish
     gedit
     git
     krita
     neovim
+    npins
     mpv
     python313
     steam
