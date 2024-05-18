@@ -33,9 +33,6 @@ in {
       ))
     ];
 
-  nix.settings = {
-    experimental-features = "nix-command flakes";
-  };
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"
     "steam"
@@ -166,6 +163,17 @@ in {
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+  };
+  # FIXME(v24.05): change following two rules to
+  # nixpkgs.flake.source = srcs.nixpkgs;
+  nix.registry.nixpkgs.to = {
+    type = "path";
+    path = srcs.nixpkgs;
+  };
+  nix.nixPath = ["nixpkgs=flake:nixpkgs"];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
