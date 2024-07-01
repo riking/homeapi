@@ -7,9 +7,9 @@
         "url": "https://git.lix.systems/lix-project/lix.git"
       },
       "branch": "main",
-      "revision": "139d31f87658c420622f6880a4bdfee8b522f87c",
+      "revision": "d3286d0990da111c536c2f879d8f9cbbd650ebae",
       "url": null,
-      "hash": "1z5p4yfdglrngxlfb45bn5mf31y5jvw1vkd1xl40z46b3llzqs04"
+      "hash": "1djvb9pp66as22y6nc7kljqza03vlivn1yjp3qp6ap043hj9pffc"
     },
     "lix-nixos-module": {
       "type": "Git",
@@ -18,9 +18,9 @@
         "url": "https://git.lix.systems/lix-project/nixos-module"
       },
       "branch": "main",
-      "revision": "53d713eb486f21d653af3ef3528e9a19ecfc45e5",
+      "revision": "5d9d94089fb1ca96222a34bfe245ef5c5ebefd37",
       "url": null,
-      "hash": "1zi6fdcfia6hl7ivdxyjdxpmxx508w89v4pwwqhc5rzmbl15hh91"
+      "hash": "02dg1icyxamxblrvgxshadp2s8mx2ryjja7m9w26sgs07jl438zk"
     },
     "nixos-hardware": {
       "type": "Git",
@@ -30,15 +30,15 @@
         "repo": "nixos-hardware"
       },
       "branch": "master",
-      "revision": "b55712de78725c8fcde422ee0a0fe682046e73c3",
-      "url": "https://github.com/NixOS/nixos-hardware/archive/b55712de78725c8fcde422ee0a0fe682046e73c3.tar.gz",
-      "hash": "0dzvf3v2pxgjnybxc54d22x50dq1qid5sql3ccxf8kbqlmpxl5s0"
+      "revision": "a59f00f5ac65b19382617ba00f360f8bc07ed3ac",
+      "url": "https://github.com/NixOS/nixos-hardware/archive/a59f00f5ac65b19382617ba00f360f8bc07ed3ac.tar.gz",
+      "hash": "1a6sr6b0gma5b7cklfhpgl02qgv7b3if8dv3y7rmc48iigaab7rf"
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-unstable",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-24.05pre627788.4a6b83b05df1/nixexprs.tar.xz",
-      "hash": "0ffwb740biax1hk9qmlfbgfr1whba8vzqszr7l41avrxf0f29ybf"
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-24.11pre645454.2741b4b489b5/nixexprs.tar.xz",
+      "hash": "1lqa1zb6bkh2kjiv2g9439mh4rzfpmflw6rjkc4gj0ww56lizf7r"
     }
   },
   "version": 3
