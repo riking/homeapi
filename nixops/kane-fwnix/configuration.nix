@@ -24,6 +24,7 @@ in {
     [
       "${srcs.nixos-hardware}/framework/13-inch/7040-amd"
       ./hardware-configuration.nix
+      ../desktop-background-swap
       (import ("${srcs.lix-nixos-module}/module.nix") (
         let lix = srcs.lix.outPath;
 	in {
