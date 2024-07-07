@@ -160,6 +160,56 @@ in {
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  programs.ssh.extraConfig = ''
+Host khome
+  Hostname home.tailscale.riking.org
+  Port 59675
+  User kane
+
+Host khome-d
+  Hostname home.riking.org
+  Port 59675
+  User kane
+
+Host mchome
+  Hostname home.riking.org
+  Port 59675
+  User mcserver
+
+Host autodelete
+  HostName 167.99.61.153
+  User autodelete
+
+Host autodelete2
+  HostName 159.65.178.37
+  HostName 2604:a880:800:a1::1323:2001
+  User autodelete
+
+Host autodelete3
+  HostName 104.131.62.140
+  HostName 2604:a880:800:14::3b:8000
+  User autodelete
+
+Host autodelete4
+  HostName 64.225.50.158
+  HostName 2604:a880:800:10::8f0:7001
+  User autodelete
+
+Host autodelete-hetzner1
+  HostName 100.93.104.118
+  User autodelete
+
+Host whitby
+  User riking
+  HostName whitby.tvl.fyi
+
+Host whitby.tvl.fyi
+  User riking
+
+Host mc-hetzner
+  HostName 5.78.79.133
+  User mcserver
+  '';
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
