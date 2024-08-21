@@ -141,6 +141,7 @@ in {
     neovim
     npins
     mpv
+    prismlauncher
     python313
     steam
     rustup
