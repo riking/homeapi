@@ -222,7 +222,7 @@ Host mc-hetzner
     experimental-features = "nix-command flakes";
   };
   # FIXME(v24.05): change following two rules to
-  # nixpkgs.flake.source = srcs.nixpkgs;
+  nixpkgs.flake.source = srcs.nixpkgs;
   nix.registry.nixpkgs.to = {
     type = "path";
     path = srcs.nixpkgs;
