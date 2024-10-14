@@ -19,6 +19,7 @@ let
       '')
     ];
   };
+  kernel610Pkgs = (import srcs.nixpkgs-kernel-6-10 {});
 in {
   imports =
     [
@@ -53,7 +54,8 @@ in {
   #    configfile "($ubuntu)/boot/grub/grub.cfg"
   #  }
   #'';
-  boot.kernelPackages = pkgs.linuxPackages_latest; # for WiFi support
+
+  boot.kernelPackages = kernel610Pkgs.linuxPackages_latest;
 
   networking.hostName = "kane-fwnix"; # Define your hostname.
   # Pick only one of the below networking options.

@@ -34,6 +34,12 @@
       "url": "https://github.com/NixOS/nixos-hardware/archive/ecfcd787f373f43307d764762e139a7cdeb9c22b.tar.gz",
       "hash": "0nsy696hbyg6bwks5nllg3adrksif9sw23cf64chbghfdci47b50"
     },
+    "nixpkgs-kernel-6-10": {
+      "type": "Channel",
+      "name": "nixos-unstable",
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-24.11pre668759.8a3354191c0d/nixexprs.tar.xz",
+      "hash": "1rrs69gqi79zs0hlymzj570sa8kw8qw5fra5ffnc69zvd5bq0a4p"
+    },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-unstable",
