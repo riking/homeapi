@@ -39,6 +39,7 @@ in {
     "discord"
     "steam"
     "steam-original"
+    "steam-unwrapped"
   ];
 
   # Suspend/wake workaround
