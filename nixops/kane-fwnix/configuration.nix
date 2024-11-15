@@ -7,6 +7,7 @@
 let
   dummyLet = 1;
   srcs = import ./npins;
+  #pkgs = import srcs.nixpkgs;
   myBluezConfig = pkgs.stdenv.mkDerivation {
     src = [
       (builtins.toFile "share/wireplumber/bluetooth.lua.d/51-bluez-config.lua" ''
@@ -57,6 +58,20 @@ in {
   #'';
 
   boot.kernelPackages = kernel610Pkgs.linuxPackages_latest;
+
+  systemd.services.zswap = {
+    description = "Enable zswap, set to zstd and Z3FOLD";
+    enable = true;
+    wantedBy = ["basic.target"];
+    path = [ pkgs.bash ];
+    serviceConfig = {
+      ExecStart = ''${pkgs.bash}/bin/bash -c 'cd /sys/module/zswap/parameters && \
+        echo zstd > compressor && echo z3fold > zpool && echo 20 > max_pool_percent && \
+        echo 1 > enabled'
+        '';
+      Type = "simple";
+    };
+  };
 
   networking.hostName = "kane-fwnix"; # Define your hostname.
   # Pick only one of the below networking options.
