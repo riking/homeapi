@@ -69,7 +69,7 @@ in {
         echo zstd > compressor && echo z3fold > zpool && echo 20 > max_pool_percent && \
         echo 1 > enabled'
         '';
-      Type = "simple";
+      Type = "oneshot";
     };
   };
 
