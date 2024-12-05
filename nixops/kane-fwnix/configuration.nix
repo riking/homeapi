@@ -162,7 +162,10 @@ in {
     prismlauncher
     python313
     steam
+    ripgrep
     rustup
+    #wayclip
+    wl-clipboard-rs
     wget
     (pkgs.callPackage ./vi.nix {})
   ];
