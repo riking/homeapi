@@ -163,6 +163,7 @@ in {
     python313
     stdenv
     (steam.override {
+      # Fix for https://forums.factorio.com/113202
       extraProfile = ''
         export XCURSOR_PATH="$(readlink -f /run/current-system/sw)/share/icons"
       '';
