@@ -161,7 +161,12 @@ in {
     mpv
     prismlauncher
     python313
-    steam
+    stdenv
+    (steam.override {
+      extraProfile = ''
+        export XCURSOR_PATH="$(readlink -f /run/current-system/sw)/share/icons"
+      '';
+    })
     ripgrep
     rustup
     #wayclip
