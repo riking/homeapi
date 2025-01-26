@@ -168,6 +168,7 @@ in {
         export XCURSOR_PATH="$(readlink -f /run/current-system/sw)/share/icons"
       '';
     })
+    treesheets
     ripgrep
     rustup
     #wayclip
