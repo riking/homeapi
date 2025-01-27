@@ -30,15 +30,15 @@
         "repo": "nixos-hardware"
       },
       "branch": "master",
-      "revision": "cceee0a31d2f01bcc98b2fbd591327c06a4ea4f9",
-      "url": "https://github.com/NixOS/nixos-hardware/archive/cceee0a31d2f01bcc98b2fbd591327c06a4ea4f9.tar.gz",
-      "hash": "0mjq8safk81c7qdj2nch9fx6x6h1pbaicx3y9mb8a21h697s7kkx"
+      "revision": "dfad538f751a5aa5d4436d9781ab27a6128ec9d4",
+      "url": "https://github.com/NixOS/nixos-hardware/archive/dfad538f751a5aa5d4436d9781ab27a6128ec9d4.tar.gz",
+      "hash": "0gm73dkbcbhzhda0yi3g467idk3bqk3108kvm6q6ivwkv0kwwik4"
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-unstable",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.05beta716003.55d15ad12a74/nixexprs.tar.xz",
-      "hash": "13ga40v83sxck8anqxvy4fb2kh49kxcm68qp5v4bpgj7wk0ph6na"
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.05beta744133.852ff1d9e153/nixexprs.tar.xz",
+      "hash": "0v3w3k82g7kyllvspyv73i4sqxpz2660lcsjx5isb3gqjsmz044m"
     },
     "nixpkgs-kernel-6-10": {
       "type": "Channel",
