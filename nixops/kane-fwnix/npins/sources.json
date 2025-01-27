@@ -7,9 +7,9 @@
         "url": "https://git.lix.systems/lix-project/lix.git"
       },
       "branch": "main",
-      "revision": "61eed2c97c6cdeb04a8673f56c00fee4fc68ea66",
+      "revision": "4af6b5ed9f8f2412bef5331b8e3b93f3ad305ea1",
       "url": null,
-      "hash": "0iym4bcbmbqyhqjn93hgshz7njcnk1f8lxfr365qkf7l8hrmgmri"
+      "hash": "1z84pyx2jxfif37kr5f969x14n2c5qga132nl9hdkz65f9mbwc3g"
     },
     "lix-nixos-module": {
       "type": "Git",
@@ -18,9 +18,9 @@
         "url": "https://git.lix.systems/lix-project/nixos-module"
       },
       "branch": "main",
-      "revision": "15b999f9c958c475f71fb8c543b9fc2f36ae8730",
+      "revision": "3e18a1ceec7df4514f5a045441e5f98dd003db09",
       "url": null,
-      "hash": "07lms2jl79nalzspw19c18h8ph6i8vlbawn2v2av42h2723qq397"
+      "hash": "0547qig8ydkajp8hl729ijg0ln7smpv7s9lay859q45cyflaji8m"
     },
     "nixos-hardware": {
       "type": "Git",
