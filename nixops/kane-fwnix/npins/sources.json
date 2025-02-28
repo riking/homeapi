@@ -39,12 +39,6 @@
       "name": "nixos-unstable",
       "url": "https://releases.nixos.org/nixos/unstable/nixos-25.05beta759373.5135c5949198/nixexprs.tar.xz",
       "hash": "1xp4rd7khrgb432qlxpgs3blvjhpyk3z3daw48jx2psd2ywiz0ri"
-    },
-    "nixpkgs-kernel-6-10": {
-      "type": "Channel",
-      "name": "nixos-unstable",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-24.11pre668759.8a3354191c0d/nixexprs.tar.xz",
-      "hash": "1rrs69gqi79zs0hlymzj570sa8kw8qw5fra5ffnc69zvd5bq0a4p"
     }
   },
   "version": 3
