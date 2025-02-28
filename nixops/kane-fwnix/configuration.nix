@@ -101,10 +101,10 @@ in {
   # KDE
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
-  services.displayManager.defaultSession = "plasmawayland";
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.displayManager.defaultSession = "plasma";
+  services.desktopManager.plasma6.enable = true;
   programs.dconf.enable = true;
-  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+  environment.plasma6.excludePackages = with pkgs.libsForQt5; [
     gwenview
     oxygen
     khelpcenter
