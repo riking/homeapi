@@ -57,7 +57,7 @@ in {
   #  }
   #'';
 
-  boot.kernelPackages = kernel610Pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   systemd.services.zswap = {
     description = "Enable zswap, set to zstd and Z3FOLD";
