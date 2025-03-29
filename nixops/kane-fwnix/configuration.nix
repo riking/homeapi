@@ -162,6 +162,7 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    comma # nix-shell shortcut
     discord
     dive # container inspector
     fish
