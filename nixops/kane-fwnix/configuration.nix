@@ -138,6 +138,17 @@ in {
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kane = {
     isNormalUser = true;
@@ -152,13 +163,17 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     discord
+    dive # container inspector
     fish
     gedit
     git
     krita
+    libreoffice
     neovim
     npins
     mpv
+    podman-compose
+    podman-tui
     prismlauncher
     python313
     stdenv
@@ -240,7 +255,7 @@ Host mc-hetzner
   User mcserver
   '';
 
-  udev.extraRules = ''
+  services.udev.extraRules = ''
       # Valve generic(all) USB devices
       SUBSYSTEM=="usb", ATTRS{idVendor}=="28de", MODE="0660", TAG+="uaccess"
       # Valve Steam Controller write access
