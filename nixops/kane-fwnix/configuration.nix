@@ -171,6 +171,7 @@ in {
     krita
     libreoffice
     neovim
+    nix-output-monitor
     npins
     mpv
     podman-compose
