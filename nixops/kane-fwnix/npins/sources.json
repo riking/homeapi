@@ -7,6 +7,7 @@
         "url": "https://git.lix.systems/lix-project/lix.git"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "5a7e9e17464008904403af4297823443281bef12",
       "url": null,
       "hash": "0qh0yxwkfnipb4qwgjxiaf4m8i4n84rcrwqsbn8ykh6zqsf2vzrg"
@@ -18,6 +19,7 @@
         "url": "https://git.lix.systems/lix-project/nixos-module"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "fa69ae26cc32dda178117b46487c2165c0e08316",
       "url": null,
       "hash": "13x2dca4s049m8fa2y4b45kgqnpk3cf26j0j0yascah32zzxn7rh"
@@ -30,6 +32,7 @@
         "repo": "nixos-hardware"
       },
       "branch": "master",
+      "submodules": false,
       "revision": "de6fc5551121c59c01e2a3d45b277a6d05077bc4",
       "url": "https://github.com/NixOS/nixos-hardware/archive/de6fc5551121c59c01e2a3d45b277a6d05077bc4.tar.gz",
       "hash": "0yi5jb00zrlads7p00cp9cg74bxa6x1006wqcl6n2bhj6h6b3xvg"
@@ -41,5 +44,5 @@
       "hash": "08if3l96mns2h9nmkndrq3aylq70z0q0hvpyxw8j4y4dr6hgyggs"
     }
   },
-  "version": 3
+  "version": 5
 }
