@@ -165,6 +165,7 @@ in {
     comma # nix-shell shortcut
     discord
     dive # container inspector
+    eog # image viewer
     fish
     gedit
     git
