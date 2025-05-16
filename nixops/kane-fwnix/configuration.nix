@@ -168,8 +168,12 @@ in {
     eog # image viewer
     fish
     gedit
-    git
     krita
+
+    jujutsu
+    git
+    meld
+
     libreoffice
     neovim
     nix-output-monitor
