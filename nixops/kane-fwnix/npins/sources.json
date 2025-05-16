@@ -8,9 +8,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "81d476984901d1f00fdcac36a0a8f06cb54048f6",
+      "revision": "4e84fd9a0061a04627ec6962c0ed08c2ad0b8a7f",
       "url": null,
-      "hash": "1ck26h6qnya432cbnwrvjmgwps8j7si42s4m0vcv5mnrzxqix520"
+      "hash": "1vgxjpp4p5cds25sb55zf24h81ip60sv7ygp4apsl2cm6wrg9g1h"
     },
     "lix-nixos-module": {
       "type": "Git",
@@ -33,15 +33,15 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "9a049b4a421076d27fee3eec664a18b2066824cb",
-      "url": "https://github.com/NixOS/nixos-hardware/archive/9a049b4a421076d27fee3eec664a18b2066824cb.tar.gz",
-      "hash": "0fadhgi4dba981fdr6l5m6916g5qillzp9x88gsf3sbhgbhq9dbx"
+      "revision": "e81fd167b33121269149c57806599045fd33eeed",
+      "url": "https://github.com/NixOS/nixos-hardware/archive/e81fd167b33121269149c57806599045fd33eeed.tar.gz",
+      "hash": "1a48x06dnlc78ddz0dwsfq77xv3isf7b08dqwf2q0y86jq1jaxrg"
     },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-unstable",
-      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.05pre782401.2631b0b7abce/nixexprs.tar.xz",
-      "hash": "15yczhqnr4wqf7kvxwp9h42r8zwdh7z0xb78xfd25ds5yk9f1rsq"
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.05pre793418.7a2622e2c0db/nixexprs.tar.xz",
+      "hash": "1159gzccj27zzy552pqhm0j8ans8dp9clr0na02aq8v8i4s465bw"
     }
   },
   "version": 5
