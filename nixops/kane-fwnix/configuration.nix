@@ -175,6 +175,7 @@ in {
     meld
 
     libreoffice
+    lieer
     neovim
     nix-output-monitor
     npins
