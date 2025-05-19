@@ -200,6 +200,21 @@ in {
     (pkgs.callPackage ./vi.nix {})
   ];
 
+  fonts.enableDefaultPackages = true;
+  fonts.packages = with pkgs; [
+    dejavu_fonts
+    freefont_ttf
+    gyre-fonts # TrueType substitutes for standard PostScript fonts
+    liberation_ttf
+    unifont
+
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+
+    nerd-fonts.fira-code
+  ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
