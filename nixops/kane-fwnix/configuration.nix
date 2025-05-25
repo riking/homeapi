@@ -11,12 +11,12 @@ let
   myBluezConfig = pkgs.stdenv.mkDerivation {
     src = [
       (builtins.toFile "share/wireplumber/bluetooth.lua.d/51-bluez-config.lua" ''
-	bluez_monitor.properties = {
-	  ["bluez5.enable-sbc-xq"] = true,
-	  ["bluez5.enable-msbc"] = true,
-	  ["bluez5.enable-hw-volume"] = true,
-	  ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
-	}
+       bluez_monitor.properties = {
+         ["bluez5.enable-sbc-xq"] = true,
+         ["bluez5.enable-msbc"] = true,
+         ["bluez5.enable-hw-volume"] = true,
+         ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+       }
       '')
     ];
   };
@@ -29,10 +29,10 @@ in {
       ../desktop-background-swap
       (import ("${srcs.lix-nixos-module}/module.nix") (
         let lix = srcs.lix.outPath;
-	in {
-	  inherit lix;
-	  versionSuffix = "pre${builtins.substring 0 8 lix.lastModifiedDate}-${lix.shortRev}";
-	}
+        in {
+          inherit lix;
+          versionSuffix = "pre${builtins.substring 0 8 lix.lastModifiedDate}-${lix.shortRev}";
+        }
       ))
     ];
 
@@ -170,7 +170,6 @@ in {
     gedit
     krita
 
-    jujutsu
     git
     meld
 
@@ -199,6 +198,21 @@ in {
     wget
     (pkgs.callPackage ./vi.nix {})
   ];
+
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      ui = {
+        pager = "${pkgs.delta}/bin/delta";
+        diff.format = "git";
+        graph.style = "curved";
+      }
+      aliases = {
+        ll = ["log" "-r" ".."];
+        tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
+      };
+    };
+  };
 
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
