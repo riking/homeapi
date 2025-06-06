@@ -8,9 +8,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "eb18a90afbe0ade000d957cda344a5bcb3d565d4",
+      "revision": "ee0655240270480d7f6063dcf12ec47f04d2ded6",
       "url": null,
-      "hash": "0067ilcc80grvjbzjcbrhsszzrbim0jdkg7b6i7rv0gk5c45y7x6"
+      "hash": "09qb2df7g84p65vjgjwbw7p473nwyhjrjx44jm7bxs2jffrnff0c"
     },
     "lix-nixos-module": {
       "type": "Git",
