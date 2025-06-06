@@ -207,6 +207,9 @@ in {
         diff.format = "git";
         graph.style = "curved";
       }
+      git = {
+        "write-change-id-header" = true;
+      }
       aliases = {
         ll = ["log" "-r" ".."];
         tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
