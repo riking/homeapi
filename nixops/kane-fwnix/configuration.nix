@@ -172,6 +172,7 @@ in {
 
     git
     meld
+    jujutsu
 
     libreoffice
     lieer
@@ -199,8 +200,8 @@ in {
     (pkgs.callPackage ./vi.nix {})
   ];
 
-  programs.jujutsu = {
-    enable = true;
+  # programs.jujutsu = {
+  #  enable = true;
   #  settings = {
   #    ui = {
   #      pager = "${pkgs.delta}/bin/delta";
@@ -215,7 +216,7 @@ in {
   #      tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
   #    };
   #  };
-  };
+  # };
 
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
