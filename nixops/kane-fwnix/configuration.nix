@@ -182,7 +182,7 @@ in {
     mpv
     podman-compose
     podman-tui
-    prismlauncher
+    #prismlauncher # causes rebuild of java 8, which fails due to symlink loop?
     python313
     stdenv
     (steam.override {
