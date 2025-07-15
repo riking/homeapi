@@ -201,20 +201,20 @@ in {
 
   programs.jujutsu = {
     enable = true;
-    settings = {
-      ui = {
-        pager = "${pkgs.delta}/bin/delta";
-        diff.format = "git";
-        graph.style = "curved";
-      }
-      git = {
-        "write-change-id-header" = true;
-      }
-      aliases = {
-        ll = ["log" "-r" ".."];
-        tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
-      };
-    };
+  #  settings = {
+  #    ui = {
+  #      pager = "${pkgs.delta}/bin/delta";
+  #      diff.format = "git";
+  #      graph.style = "curved";
+  #    };
+  #    git = {
+  #      "write-change-id-header" = true;
+  #    };
+  #    aliases = {
+  #      ll = ["log" "-r" ".."];
+  #      tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
+  #    };
+  #  };
   };
 
   fonts.enableDefaultPackages = true;
