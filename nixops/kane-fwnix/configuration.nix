@@ -166,6 +166,7 @@ in {
     discord
     dive # container inspector
     eog # image viewer
+    ffmpeg
     fish
     gedit
     krita
