@@ -104,8 +104,7 @@ in {
   services.displayManager.defaultSession = "plasma";
   services.desktopManager.plasma6.enable = true;
   programs.dconf.enable = true;
-  environment.plasma6.excludePackages = with pkgs.libsForQt5; [
-    gwenview
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
     oxygen
     khelpcenter
     plasma-browser-integration
@@ -175,6 +174,7 @@ in {
     meld
     jujutsu
 
+    josm
     libreoffice
     lieer
     neovim
@@ -183,7 +183,7 @@ in {
     mpv
     podman-compose
     podman-tui
-    #prismlauncher # causes rebuild of java 8, which fails due to symlink loop?
+    prismlauncher # causes rebuild of java 8, which fails due to symlink loop?
     python313
     stdenv
     (steam.override {
