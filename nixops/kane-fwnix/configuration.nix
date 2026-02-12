@@ -161,29 +161,25 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    archipelago
     comma # nix-shell shortcut
     discord
-    dive # container inspector
     eog # image viewer
     ffmpeg
     fish
     gedit
-    krita
-
     git
-    meld
-    jujutsu
-
+    krita
     josm
+    jujutsu
+      meld
     libreoffice
     lieer
     neovim
     nix-output-monitor
     npins
     mpv
-    podman-compose
-    podman-tui
-    prismlauncher # causes rebuild of java 8, which fails due to symlink loop?
+    prismlauncher
     python313
     stdenv
     (steam.override {
@@ -192,6 +188,7 @@ in {
         export XCURSOR_PATH="$(readlink -f /run/current-system/sw)/share/icons"
       '';
     })
+    steam-run
     treesheets
     ripgrep
     rustup
@@ -261,25 +258,6 @@ Host mchome
   Hostname home.riking.org
   Port 59675
   User mcserver
-
-Host autodelete
-  HostName 167.99.61.153
-  User autodelete
-
-Host autodelete2
-  HostName 159.65.178.37
-  HostName 2604:a880:800:a1::1323:2001
-  User autodelete
-
-Host autodelete3
-  HostName 104.131.62.140
-  HostName 2604:a880:800:14::3b:8000
-  User autodelete
-
-Host autodelete4
-  HostName 64.225.50.158
-  HostName 2604:a880:800:10::8f0:7001
-  User autodelete
 
 Host autodelete-hetzner1
   HostName 100.93.104.118
