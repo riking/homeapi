@@ -27,18 +27,22 @@ in {
       "${srcs.nixos-hardware}/framework/13-inch/7040-amd"
       ./hardware-configuration.nix
       ../desktop-background-swap
-      (import ("${srcs.lix-nixos-module}/module.nix") (
-        let lix = srcs.lix.outPath;
-        in {
-          inherit lix;
-          versionSuffix = "pre${builtins.substring 0 8 lix.lastModifiedDate}-${lix.shortRev}";
-        }
-      ))
     ];
+
+  nixpkgs.overlays = [ (final: prev: {
+    inherit (prev.lixPackageSets.stable)
+      nixpkgs-review
+      nix-eval-jobs
+      nix-fast-build
+      colmena;
+  }) ];
+
+  nix.package = pkgs.lixPackageSets.stable.lix;
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "discord"
     "steam"
+    "steam-run"
     "steam-original"
     "steam-unwrapped"
   ];
