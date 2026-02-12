@@ -40,6 +40,8 @@ in {
   nix.package = pkgs.lixPackageSets.stable.lix;
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "celeste"
+    "celeste-unwrapped"
     "discord"
     "steam"
     "steam-run"
@@ -166,6 +168,7 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     archipelago
+      olympus
     comma # nix-shell shortcut
     discord
     eog # image viewer
