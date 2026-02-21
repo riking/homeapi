@@ -197,7 +197,8 @@ in {
     })
     steam-run
     treesheets
-    retroarch
+    retroarch-free
+      gamemode
     ripgrep
     rustup
     #wayclip
