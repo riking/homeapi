@@ -207,6 +207,14 @@ in {
     (pkgs.callPackage ./vi.nix {})
   ];
 
+  # California AB 1043 compliance
+  environment.etc = {
+    operator-birthday = {
+      text = "807174000";
+      mode = "0444";
+    };
+  };
+
   # programs.jujutsu = {
   #  enable = true;
   #  settings = {
