@@ -175,6 +175,7 @@ in {
     ffmpeg
     fish
     gedit
+    gnome-network-displays
     git
     krita
     josm
@@ -309,6 +310,13 @@ Host mc-hetzner
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  services.avahi.enable = true;
+  networking.firewall.allowedTCPPorts = [
+    7236 7250 # miracast
+  ];
+  networking.firewall.allowedUDPPorts = [
+    7236 5353 # miracast
+  ];
 
   nix.settings = {
     experimental-features = "nix-command flakes";
