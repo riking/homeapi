@@ -159,9 +159,11 @@ in {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-      firefox
       tree
     ];
+  };
+  users.users.riley = {
+    isNormalUser = true;
   };
 
   # List packages installed in system profile. To search, run:
@@ -173,6 +175,7 @@ in {
     discord
     eog # image viewer
     ffmpeg
+    firefox
     fish
     gedit
     gnome-network-displays
