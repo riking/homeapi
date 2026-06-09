@@ -206,6 +206,9 @@ in {
       gamemode
     ripgrep
     rustup
+    # for Kate editor
+    vscode-json-languageserver
+    #vscode-html-languageserver # https://nixpk.gs/pr-tracker.html?pr=422691
     #wayclip
     wl-clipboard-rs
     wget
