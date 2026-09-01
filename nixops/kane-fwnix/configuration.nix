@@ -71,7 +71,8 @@ in {
     wantedBy = ["basic.target"];
     path = [ pkgs.bash ];
     serviceConfig = {
-      ExecStart = ''${pkgs.bash}/bin/bash -c 'cd /sys/module/zswap/parameters && \
+      ExecStart = ''
+        ${pkgs.bash}/bin/bash -c 'cd /sys/module/zswap/parameters && \
         echo zstd > compressor && echo z3fold > zpool && echo 20 > max_pool_percent && \
         echo 1 > enabled'
         '';
