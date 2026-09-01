@@ -43,6 +43,7 @@ in {
     "celeste"
     "celeste-unwrapped"
     "discord"
+    "discord-unwrapped"
     "steam"
     "steam-run"
     "steam-original"
