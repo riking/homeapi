@@ -173,6 +173,7 @@ in {
   environment.systemPackages = with pkgs; [
     archipelago
       olympus
+      poptracker
     comma # nix-shell shortcut
     discord
     eog # image viewer
