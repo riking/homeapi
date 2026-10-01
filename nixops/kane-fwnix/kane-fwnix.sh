@@ -6,7 +6,8 @@ shift
 
 nixpkgs_pin=$(nix eval --raw -f npins/default.nix nixpkgs)
 export NIX_PATH="nixpkgs=${nixpkgs_pin}:nixos-config=${PWD}/configuration.nix"
+export NIXOS_CONFIG="${PWD}/configuration.nix"
 
 # without --no-reexec, nixos-rebuild will compile nix and use the compiled nix to evaluate the config
 # nom is nix-output-monitor
-sudo /usr/bin/env NIX_PATH="${NIX_PATH}" nixos-rebuild "$cmd" --no-reexec "$@" |& nom
+sudo /usr/bin/env NIX_PATH="${NIX_PATH}" NIXOS_CONFIG="${NIXOS_CONFIG}" nixos-rebuild "$cmd" --no-reexec "$@" |& nom
