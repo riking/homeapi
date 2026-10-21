@@ -128,8 +128,12 @@ in {
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound.
   security.rtkit.enable = true;
+  security.pki.caCertificateBlacklist = [
+    "Comodo AAA Services root"
+    "emSign ECC Root CA - G3"
+  ];
+  # Enable sound.
   services.pipewire = {
     enable = true;
     alsa.enable = true;
